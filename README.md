@@ -16,7 +16,7 @@ You can cut out/remove packages of specific protocols or you can keep only packa
 ## Usage
 usage: ```filter_pcap.py [-h] (-r PROTOCOL [PROTOCOL ...] | -k PROTOCOL [PROTOCOL ...]) <input_file>```
 
-Filters pcap or pcapng files. You can specify if packages of specific protocols (see scapy.ls() for supported protocols) should be kept or removed. The output file will be placed besides the input file (e.g. test.pcap -> test_filtered.pcap)
+Filters pcap or pcapng files. You can specify if packets of specific protocols (see scapy.ls() for supported protocols) should be kept or removed. The output file will be placed besides the input file (e.g. test.pcap -> test_filtered.pcap)
 
 positional arguments:
 
@@ -34,6 +34,6 @@ optional arguments:
 
 examples:
 
-  ```./filter_pcap.py test.pcap -r TCP UDP``` (removes TCP and UDP packages)
+  ```./filter_pcap.py test.pcap -r TCP UDP``` (removes TCP and UDP packets)
   
-  ```./filter_pcap.py test.pcap -k TCP``` (keeps only TCP packages)
+  ```./filter_pcap.py test.pcap -k TCP``` (keeps only TCP packets)
