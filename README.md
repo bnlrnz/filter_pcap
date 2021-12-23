@@ -19,13 +19,17 @@ usage: ```filter_pcap.py [-h] (-r PROTOCOL [PROTOCOL ...] | -k PROTOCOL [PROTOCO
 Filters pcap or pcapng files. You can specify if packages of specific protocols (see scapy.ls() for supported protocols) should be kept or removed. The output file will be placed besides the input file (e.g. test.pcap -> test_filtered.pcap)
 
 positional arguments:
-```  <input_file>          the input file that will be filtered``
+
+```<input_file>``` the input file that will be filtered
 
 optional arguments:
-  -h, --help            show this help message and exit
-  -r PROTOCOL [PROTOCOL ...], --remove PROTOCOL [PROTOCOL ...]
+
+```-h, --help```            show this help message and exit
+
+```-r PROTOCOL [PROTOCOL ...], --remove PROTOCOL [PROTOCOL ...]```
                         a list of protocols that should be removed
-  -k PROTOCOL [PROTOCOL ...], --keep PROTOCOL [PROTOCOL ...]
+                        
+```-k PROTOCOL [PROTOCOL ...], --keep PROTOCOL [PROTOCOL ...]```
                         a list of protocols that should be kept
 
 examples:
