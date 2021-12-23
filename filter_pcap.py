@@ -26,7 +26,7 @@ def get_protocols_by_name(name) -> []:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(formatter_class=RawTextHelpFormatter,
-                                     description="Filters pcap or pcapng files. You can specify if packages of specific protocols (see scapy.ls() for supported protocols) should be kept or removed. The output file will be placed besides the input file (e.g. test.pcap -> test_filtered.pcap)", epilog=f"examples:\n  ./filter_pcap.py test.pcap -r TCP UDP (removes TCP and UDP packages)\n  ./filter_pcap.py test.pcap -k TCP (keeps only TCP packages)")
+                                     description="Filters pcap or pcapng files. You can specify if packets of specific protocols (see scapy.ls() for supported protocols) should be kept or removed. The output file will be stored next to the input file (e.g. test.pcap -> test_filtered.pcap)", epilog=f"examples:\n  ./filter_pcap.py test.pcap -r TCP UDP (removes TCP and UDP packets)\n  ./filter_pcap.py test.pcap -k TCP (keeps only TCP packets)")
     parser.add_argument("input_file", metavar="<input_file>",
                         type=str, help="the input file that will be filtered")
     group = parser.add_mutually_exclusive_group(required=True)
@@ -54,15 +54,15 @@ if __name__ == '__main__':
 
     if len(args.remove) != 0:
         print(
-            f"Removing all packages containing {protocol_names}...")
+            f"Removing all packets containing {protocol_names}...")
         filtered = list(itertools.filterfalse(lambda pkt: any(
             pkt for prot in protocols if prot in pkt), pkts))
-        print(f"Removed {len(pkts) - len(filtered)} of {len(pkts)} packages!")
+        print(f"Removed {len(pkts) - len(filtered)} of {len(pkts)} packets!")
     else:
         print(
-            f"Keeping only packages containing {protocol_names}...")
+            f"Keeping only packets containing {protocol_names}...")
         filtered = list(filter(lambda pkt: any(
             pkt for prot in protocols if prot in pkt), pkts))
-        print(f"Kept {len(filtered)} of {len(pkts)} packages!")
+        print(f"Kept {len(filtered)} of {len(pkts)} packets!")
 
     wrpcap(output_file, filtered)
