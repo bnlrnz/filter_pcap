@@ -1,7 +1,7 @@
 # filter_pcap
 
 Filters pcap or pcapng files in order to make them smaller and easier to read.
-You can cut out/remove packages of specific protocols or you can keep only packages of specific protocols.
+You can cut out/remove packets of specific protocols or you can keep only packets of specific protocols.
 
 ## Requirements
 
