@@ -65,4 +65,8 @@ if __name__ == '__main__':
             pkt for prot in protocols if prot in pkt), pkts))
         print(f"Kept {len(filtered)} of {len(pkts)} packets!")
 
+    if len(filtered) < 1:
+        print(f"Nothing to save. Exiting... ")
+        exit()
+
     wrpcap(output_file, filtered)
