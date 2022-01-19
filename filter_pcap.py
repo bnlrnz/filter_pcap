@@ -111,7 +111,9 @@ if __name__ == '__main__':
         (work_done, filtered) = remove_or_keep(args)
     else:
         filtered = sniff(offline=input_file, filter=args.filter)
-        work_done = abs(len(filtered) - len(sniff(offline=input_file)))
+        all_pkts = len(sniff(offline=input_file))
+        work_done = abs(len(filtered) - all_pkts)
+        print(f"Kept {len(filtered)} of {len(all_pkts)} packets!")
 
     if work_done == 0:
         print(f"Nothing to save. Exiting... ")
